@@ -9,7 +9,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-boot-data-json
-  namespace: java
+  namespace: default
   labels:
     app: spring-boot-data-json
 spec:
@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-data-json
-        image: eu.gcr.io/java/spring-boot-data-json:latest
+        image: gcr.io/neat-responder-323913/spring-boot-data-json:latest
         ports:
         - containerPort: 8080
         livenessProbe:
@@ -48,7 +48,7 @@ metadata:
   labels:
     app: spring-boot-data-json
   name: spring-boot-data-json-service
-  namespace: java
+  namespace: default
 spec:
   externalTrafficPolicy: Cluster
   ports:
